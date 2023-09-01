@@ -8,9 +8,9 @@ const images = [
   { url: "https://picsum.photos/id/239/200/300" },
 ];
 
-function renderImages(){
+function renderImages(arr){
 	//
-	Promise.all(images)
+	Promise.all(arr)
 	.then((data)=>{
 	console.log(data);
 	data.forEach(element => {
@@ -21,6 +21,8 @@ function renderImages(){
 })
 }
 
-btn.addEventListener("click",renderImages);
+btn.addEventListener("click",()=>{
+	return renderImages(images);
+});
 
 
