@@ -8,29 +8,19 @@ const images = [
   { url: "https://picsum.photos/id/239/200/300" },
 ];
 
-
-let promise1= new Promise((resolve,reject)={
-	resolve(images[1].url);
+function renderImages(){
+	//
+	Promise.all(images)
+	.then((data)=>{
+	console.log(data);
+	data.forEach(element => {
+		let img=document.createElement("img");
+		img.src=element.url;
+		output.appendChild(img);
+	});
 })
+}
 
-let promise2= new Promise((resolve,reject)={
-	resolve(images[2].url);
-})
-
-let promise1= new Promise((resolve,reject)={
-	resolve(images[2].url);
-})
-
-let promises=[promise1,promise2,promises];
-
-Promise.all(promises)
-.then((data)=>{
-let img= document.createElement("img");
-	img.src="data";
-	output.appendChild(img);
-	})
-.catch((error)=>{
-	console.log(error)
-})
+btn.addEventListener("click",renderImages);
 
 
